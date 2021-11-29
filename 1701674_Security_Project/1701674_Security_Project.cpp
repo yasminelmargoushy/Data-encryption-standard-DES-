@@ -165,9 +165,6 @@ int main(int argc, char* argv[])
     unsigned long long RootKey64;
     RootKey64 = hex2int(Key64Str);
 
-    // Start Timer
-    unsigned long long t1 = __rdtsc();
-
     // Permutation Choice 1 for Key
     unsigned long long RootKey56 = Permute(RootKey64, PermutationChoice1Table, 56, 64);
 
@@ -192,6 +189,9 @@ int main(int argc, char* argv[])
             j--;
         }
     }
+
+    // Start Timer
+    unsigned long long t1 = __rdtsc();
 
     // Initial Permutation for Text
     RootText64 = Permute(RootText64, InitialPermutationTable, 64, 64);
